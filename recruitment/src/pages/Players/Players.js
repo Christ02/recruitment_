@@ -1,18 +1,22 @@
 import React, {useState, useEffect} from 'react';
+import PlayerFinder from "../apis/PlayerFinder";
 import { InfoSection } from '../../components';
 import { PlayersList } from '../../components';
 import { Fragment } from 'react';
-import { Button } from '../../globalStyles';
+
 
 function Players() {
 
   const [laliga, setPlayers] = useState([])
+  
 
   useEffect(() => {
-    const getPlayers = () => {
-      fetch('http://localhost:8000/api')
+    const getPlayers = async () => {
+      const response = await PlayerFinder.get("/");
+    
+      fetch("http://localhost:8000/api")
       .then(res => res.json())
-      .then(res => setPlayers(res))
+      .then(res => setPlayers(res)) 
     }
     getPlayers()
     
@@ -28,10 +32,10 @@ function Players() {
             </div>
 
           </div>
-        </div>
-      </Fragment>
+      </div>
+    </Fragment>
   );
 }
 
-export default Players;
+export default Players; 
  

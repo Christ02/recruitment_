@@ -51,7 +51,7 @@ function Navbar() {
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
                 <NavLinks to='/' onClick={closeMobileMenu}>
-                  Homes
+                  Home
                 </NavLinks>
               </NavItem>
               <NavItem>
